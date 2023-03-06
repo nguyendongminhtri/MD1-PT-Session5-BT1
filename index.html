@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    <script src="js/main.js"></script>-->
+</head>
+<body>
+<label >Điểm Vật Lý</label>
+<input type="text" id="vatLy">
+<label >Điểm Hóa Học</label>
+<input type="text" id="hoaHoc">
+<label>Điểm Sinh Học:</label>
+<input type="text" id="sinhHoc">
+<button onclick="tongDiemVaAVG()">In ra Tổng Điểm và AVG</button>
+<h1 style="color: blue" id="tongDiem">  </h1>
+<h1 style="color: red" id="avg"> </h1>
+<script>
+    // Bài 1: Viết chương trình nhập điểm của một sinh viên cho các môn: Vật lý, Hóa học,
+    //     và Sinh học. Sau đó hiển thị điểm trung bình và tổng của những điểm này.
+
+    //CÁCH 1: DÙNG JS THUẦN- TỨC LÀ DÙNG CÁ THẺ NHẬP XUẤT THUẦN JS
+
+    let vatLy = +prompt('Nhập vào điểm Lý: ');
+    let hoaHoc = +prompt('Nhập vào điểm Hóa: ')
+    let sinhHoc = +prompt('Nhập vào điểm Sinh: ')
+    let sum = vatLy+hoaHoc+sinhHoc;
+    let avg = sum/3;
+    alert('Tổng điểm: '+sum)
+    alert('Điểm trung bình là: '+avg);
+
+    //CÁCH 2: MÌNH TƯƠNG TÁC VỚI HTML THÔNG QUA DOM
+   function tongDiemVaAVG() {
+       let vatLy = +document.getElementById('vatLy').value;
+       let hoaHoc = +document.getElementById('hoaHoc').value;
+       let sinhHoc = +document.getElementById('sinhHoc').value;
+       let tongDiem = vatLy + hoaHoc + sinhHoc;
+       console.log('tong diem ---> ', tongDiem)
+       document.getElementById('tongDiem').innerHTML = 'Tổng điểm: ' + tongDiem;
+       let avg = tongDiem/3;
+       document.getElementById('avg').innerHTML = 'Điểm Trung Bình: ' + avg;
+       console.log('avg ----> ', avg)
+   }
+</script>
+</body>
+
+</html>
